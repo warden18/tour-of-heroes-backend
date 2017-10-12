@@ -1,5 +1,5 @@
 module.exports = (app, db) => {
-	app.get('/heroes', (req, res) => {
+	app.get('/api/heroes', (req, res) => {
 		db.collection('heroes').find({}).toArray((err, heroes) => {
 			if (err) {
 		 		res.send({ error: 'some error' });
@@ -9,7 +9,7 @@ module.exports = (app, db) => {
 		});	
 	});
 
-	app.post('/heroes', (req, res) => {
+	app.post('/api/heroes', (req, res) => {
 		const hero = { name: req.body.name };
 		db.collection('heroes').insert(hero, (err, result) => {
 			if (err) {
