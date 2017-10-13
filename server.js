@@ -6,6 +6,7 @@ const db = require('./config/db');
 const routes = require('./app/routes');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 MongoClient.connect(db.url, (err, database) => {
 	routes(app, database);
