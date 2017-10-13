@@ -38,7 +38,10 @@ module.exports = (app, db) => {
 	});
 
 	app.post('/api/heroes', (req, res) => {
-		const hero = { name: req.body.name };
+		const hero = { 
+			name: req.body.name,
+			index: req.body.index
+		};
 		db.collection('heroes').insert(hero, (err, result) => {
 			if (err) {
 				res.send({ error: 'some error' });
